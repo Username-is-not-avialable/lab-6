@@ -1,0 +1,18 @@
+{
+  "name": "hardhat-tutorial",
+  "version": "1.0.0",
+  "description": "Welcome to our beginners guide to Ethereum contracts and dApp development. This tutorial aims to quickly get you set up to build something from scratch.",
+  "main": "hardhat.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "hardhat": "^2.19.2"
+  }
+}

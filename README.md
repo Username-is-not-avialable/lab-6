@@ -175,6 +175,7 @@ npx hardhat test
   Token contract
     ✔ Deployment should assign the total supply of tokens to the owner
 ```
+
 Добавьте еще один тест для проверки перемещения токенов между аккаунтами и выполните его: 
 ```js
 describe("Token contract", function () {
@@ -225,14 +226,32 @@ Private Key: 0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d
 ```sh
 curl --data '{"jsonrpc":"2.0","method":"eth_getBalance", "params": ["0x9b1d35635cc34752ca54713bb99d38614f63c955", "latest"], "id":2}' -H "Content-Type: application/json" localhost:8545
 ```
+
+На windows используйте curl.exe с явным преобразованием строки в json 
+```sh
+$body = '{"jsonrpc":"2.0","method":"eth_getBalance", "params": ["0x9b1d35635cc34752ca54713bb99d38614f63c955", "latest"], "id":2}' | ConvertTo-Json
+curl.exe -d $body localhost:8545
+```
+
 Есть более удобные инструменты, например [geth](https://geth.ethereum.org/docs/interacting-with-geth/javascript-console) или та же библиотека [ethers](https://docs.ethers.org/v5/single-page/#/v5/api/providers/jsonrpc-provider/). 
 Однако самым удобным для пользователей, пожалуй, является кошелек, который устанавливается как расширение браузера.  
 
 Рекомендуем использовать [MetaMask](https://metamask.io/download/), т.к. он лучше всего подходит для [децентрализованных приложений](https://cryptowallet.com/academy/best-ethereum-wallets/). 
 
-todo Настройка кошелька 
+Настройка кошелька 
+Создайте новую сеть вручную с параметрами 
+```
+Network name: hardhat
+New RPC URL: http://127.0.0.1:8545/
+Chain ID: 31337
+Currency symbol: HH
+```
+
+Импортируйте аккаунт с помощью приватного ключа из консоли, например '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266' 
 
 # 6 Разработка UI
 
-# 7 Задание на самостоятельную работу
+Перенесите компоненты `Wallet.js` и `Transfer.js` из предыдущего семинара и подключите их в `App.js`. 
+
+Измените логику их работы на взаимодействие с тестовой сетью hardhat. 
 

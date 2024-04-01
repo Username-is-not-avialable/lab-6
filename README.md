@@ -22,7 +22,7 @@ npm i
 
 Создайте новое приложение с помощью `vite` 
 ```sh
-npx create-react-app app --template react
+npm create vite@latest app --template react
 ```
 
 Установите зависимости, запустите приложение, проверьте его работу. 

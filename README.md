@@ -374,6 +374,25 @@ export default App
 
 Добавьте метод, который читает баланс токенов из смарт-контракта, размещенного в сети hardhat. 
 ```js
+
+import { ethers } from 'ethers';
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const ABI = [
+  // ERC20 Standart Read-Only Functions
+  "function balanceOf(address owner) view returns (uint256)",
+  "function decimals() view returns (uint8)",
+  "function symbol() view returns (string)",
+
+  // Authenticated Functions
+  "function transfer(address to, uint amount) returns (bool)",
+
+  // Events
+  "event Transfer(address indexed from, address indexed to, uint amount)"
+];
+
+// This can be an address or an ENS name
+const CONTRACT_ADDRESS = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+
   async function updateAccount() {
     const accounts = await provider.send('eth_requestAccounts', []);
     console.log("Available accounts: ", accounts);
